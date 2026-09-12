@@ -218,26 +218,26 @@ jQuery(function ($) {
 				prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
 				nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>',
 				responsive: [{
-						breakpoint: 992,
-						settings: {
-							slidesToShow: 3,
-							slidesToScroll: 3
-						}
-					},
-					{
-						breakpoint: 768,
-						settings: {
-							slidesToShow: 2,
-							slidesToScroll: 2
-						}
-					},
-					{
-						breakpoint: 481,
-						settings: {
-							slidesToShow: 1,
-							slidesToScroll: 1
-						}
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3
 					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				},
+				{
+					breakpoint: 481,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
 				]
 			});
 		}
@@ -261,5 +261,120 @@ jQuery(function ($) {
 
 	});
 
+
+});
+
+// LIGHT BOX OUR PROJECTS
+
+document.addEventListener("DOMContentLoaded", function () {
+
+	const projectCards = document.querySelectorAll(".ts-project-card");
+	const lightbox = document.getElementById("tsLightbox");
+	const lightboxImage = document.getElementById("tsLightboxImage");
+	const lightboxClose = document.getElementById("tsLightboxClose");
+	const lightboxCaption = document.getElementById("tsLightboxCaption");
+
+	if (!lightbox || !lightboxImage || !lightboxClose) return;
+
+	function isMobileView() {
+		return window.innerWidth <= 768;
+	}
+
+	function openLightbox(card) {
+		const image = card.querySelector(".ts-project-img");
+		if (!image) return;
+
+		lightboxImage.src = image.src;
+		lightboxImage.alt = image.alt || "Project image";
+
+		const title = card.querySelector(".ts-project-heading") || card.querySelector(".ts-project-overlay-title");
+		if (title && lightboxCaption) {
+			lightboxCaption.textContent = title.textContent.trim();
+		}
+
+		lightbox.classList.add("active");
+		document.documentElement.classList.add("ts-lightbox-open");
+		document.body.classList.add("ts-lightbox-open");
+	}
+
+	function closeLightbox() {
+		lightbox.classList.remove("active");
+		document.documentElement.classList.remove("ts-lightbox-open");
+		document.body.classList.remove("ts-lightbox-open");
+
+		setTimeout(function () {
+			lightboxImage.src = "";
+		}, 300);
+	}
+
+	projectCards.forEach(function (card) {
+		// Top-right lightbox icon button (primarily for mobile)
+		const lightboxBtn = card.querySelector(".ts-project-lightbox-btn");
+		if (lightboxBtn) {
+			lightboxBtn.addEventListener("click", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				openLightbox(card);
+			});
+		}
+
+		// Card click behavior
+		card.addEventListener("click", function (e) {
+			e.preventDefault();
+
+			// If clicked on or inside the dedicated lightbox button, already handled
+			if (e.target.closest(".ts-project-lightbox-btn")) {
+				return;
+			}
+
+			if (isMobileView()) {
+				// Mobile view: tap card to toggle overlay details
+				const wasActive = card.classList.contains("active");
+
+				// Close overlay on any other open cards
+				projectCards.forEach(function (c) {
+					c.classList.remove("active");
+				});
+
+				// Toggle current card
+				if (!wasActive) {
+					card.classList.add("active");
+				}
+			} else {
+				// Desktop view: clicking the card opens the lightbox
+				openLightbox(card);
+			}
+		});
+	});
+
+	// Close any active mobile card overlay when clicking outside
+	document.addEventListener("click", function (e) {
+		if (isMobileView() && !e.target.closest(".ts-project-card")) {
+			projectCards.forEach(function (c) {
+				c.classList.remove("active");
+			});
+		}
+	});
+
+	// Close lightbox button
+	lightboxClose.addEventListener("click", function () {
+		closeLightbox();
+	});
+
+	// Click on lightbox backdrop to close
+	lightbox.addEventListener("click", function (e) {
+		if (e.target === lightbox) {
+			closeLightbox();
+		}
+	});
+
+	// Clean up active classes when resizing back to desktop
+	window.addEventListener("resize", function () {
+		if (!isMobileView()) {
+			projectCards.forEach(function (c) {
+				c.classList.remove("active");
+			});
+		}
+	});
 
 });
