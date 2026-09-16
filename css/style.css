@@ -735,6 +735,9 @@ ul.navbar-nav>li>a {
   .navbar-nav {
     margin-bottom: 15px;
   }
+  .header-two .site-navigation{
+    background: #fff!important;
+  }
 }
 
 ul.navbar-nav>li:hover>a,
@@ -1127,7 +1130,17 @@ ul.navbar-nav>li>a {
   cursor: pointer;
   top: 22px;
   right: 18px;
-  color: #999;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-search:hover {
+  color: #ca9352;
+  transform: scale(1.08);
 }
 
 @media (max-width: 991px) {
@@ -1138,55 +1151,117 @@ ul.navbar-nav>li>a {
 
 .search-block {
   background-color: rgba(0, 0, 0, 0.65);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
   display: none;
-  padding: 10px;
+  padding: 8px 10px;
   position: absolute;
   right: 15px;
   top: 100%;
-  width: 300px;
+  width: 360px;
+  max-width: 95vw;
+  z-index: 1050;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.search-block label {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: block;
+}
+
+.search-block .form-control {
+  background-color: #1a2529;
+  border: none;
+  color: #fff;
+  width: 100%;
+  height: 44px;
+  padding: 0 44px 0 16px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-block .form-control:focus {
+  background-color: #1e2c31;
+  outline: none;
+  color: #fff;
+}
+
+.search-block .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13.5px;
+}
+
+/* Close button placed directly ON the search field */
+.search-block .search-close {
+  color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
   z-index: 10;
-  margin-top: 0;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+.search-block .search-close:hover {
+  background: #ca9352;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
 }
 
 @media (max-width: 991px) {
   .search-block {
-    top: 58px;
+    top: calc(100% + 6px);
+    left: 15px;
+    right: 15px;
+    width: auto;
+    max-width: calc(100% - 30px);
+    padding: 8px;
+    margin-top: 0;
+  }
+
+  .search-block .search-close {
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .search-block .form-control {
+    height: 44px;
+    font-size: 14px;
+    padding-right: 44px;
   }
 }
 
-.search-block .form-control {
-  background-color: #222;
-  border: none;
-  color: #fff;
-  width: 100%;
-  height: 40px;
-  padding: 0 12px;
-}
+@media (max-width: 575px) {
+  .search-block {
+    left: 10px;
+    right: 10px;
+    max-width: calc(100% - 20px);
+    padding: 6px;
+  }
 
-.search-block .search-close {
-  color: #999;
-  position: absolute;
-  top: -53px;
-  right: -4px;
-  font-size: 32px;
-  cursor: pointer;
-  background: #23282d;
-  padding: 5px;
-}
-
-@media (max-width: 991px) {
   .search-block .search-close {
-    top: -46px;
+    right: 14px;
   }
 }
 
 .search-area .nav-search {
   top: 23px;
-}
-
-.search-area .search-block .search-close {
-  top: -50px;
 }
 
 .search-area .search-block {
@@ -1872,6 +1947,14 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 }
 
 
+@media(max-width: 576px) {
+  .team-member {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+
 /* Icon squre */
 .ts-service-icon.icon-round i {
   font-size: 24px;
@@ -2039,11 +2122,18 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
   opacity: 1;
 }
 
+.shuffle-item .project-img-container .gallery-popup {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .shuffle-item .project-img-container .gallery-popup .gallery-icon {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   padding: 5px 12px;
   background: #ffb600;
   color: #fff;
@@ -3092,6 +3182,18 @@ label {
   font-weight: 400;
 }
 
+@media(max-width: 768px){
+ #rascomap .col-lg-12{
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+ }
+
+  #rascomap .container{
+    padding-left: 0px!important;
+    padding-right: 0px!important; 
+  }
+}
+
 /* Contact page 2 */
 .ts-service-box.text-center .ts-service-icon.icon-squre i {
   float: none;
@@ -3584,6 +3686,12 @@ label {
   font-weight: 700;
 }
 
+
+@media(max-width: 768px){
+  .error-page .error-code h2{
+    font-size: 150px;
+  }
+}
 /* ==================================================
    Our Projects Grid Section (Consultancy)
 ================================================== */
@@ -3928,5 +4036,1340 @@ body.ts-lightbox-open {
     bottom: 15px;
     width: 90%;
     font-size: 14px;
+  }
+}
+
+/* ==========================================================================
+   AUTHENTIC ARCHITECTURAL THEME & HUMAN-CRAFTED DESIGN SYSTEM
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+body.consultancy-modern-page {
+  --fx-obsidian: #0b1417;
+  --fx-obsidian-card: #101c20;
+  --fx-obsidian-surface: #142328;
+  --fx-teal: #094d56;
+  --fx-teal-dark: #053339;
+  --fx-teal-hover: #0c616d;
+  --fx-teal-subtle: rgba(9, 77, 86, 0.07);
+  --fx-bronze: #b88e28;
+  --fx-bronze-dark: #916e1c;
+  --fx-bronze-light: #d4af37;
+  --fx-bronze-subtle: rgba(184, 142, 40, 0.1);
+  --fx-charcoal-900: #0f172a;
+  --fx-charcoal-800: #1e293b;
+  --fx-charcoal-700: #334155;
+  --fx-slate-body: #475569;
+  --fx-slate-muted: #64748b;
+  --fx-slate-subtle: #94a3b8;
+  --fx-border: #e2e8f0;
+  --fx-border-dark: rgba(255, 255, 255, 0.1);
+  --fx-bg-pure: #ffffff;
+  --fx-bg-warm: #fbfcfd;
+  --fx-bg-slate: #f8fafc;
+  --fx-font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fx-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fx-radius-xs: 4px;
+  --fx-radius-sm: 6px;
+  --fx-radius-md: 8px;
+  --fx-radius-lg: 12px;
+  font-family: var(--fx-font-body);
+  color: var(--fx-slate-body);
+  background-color: var(--fx-bg-pure);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body.consultancy-modern-page h1,
+body.consultancy-modern-page h2,
+body.consultancy-modern-page h3,
+body.consultancy-modern-page h4,
+body.consultancy-modern-page h5 {
+  font-family: var(--fx-font-heading);
+  color: var(--fx-obsidian);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   AUTHENTIC HUMAN ARCHITECTURAL HERO BANNER
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .arch-consultancy-hero {
+  position: relative;
+  min-height: 440px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 0 85px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.consultancy-modern-page .arch-consultancy-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 16, 20, 0.90) 0%, rgba(8, 16, 20, 0.76) 55%, rgba(8, 16, 20, 0.56) 100%);
+  z-index: 1;
+}
+
+body.consultancy-modern-page .arch-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb {
+  margin-bottom: 22px;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb .breadcrumb-item {
+  font-family: var(--fx-font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb .breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb .breadcrumb-item a:hover {
+  color: #ffffff;
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb .breadcrumb-item.active {
+  color: var(--fx-teal);
+  font-weight: 700;
+}
+
+body.consultancy-modern-page .arch-hero-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.4);
+  content: "/";
+  padding: 0 10px;
+}
+
+body.consultancy-modern-page .arch-hero-title {
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+}
+
+body.consultancy-modern-page .arch-hero-subtitle {
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 660px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------
+   SHARED EDITORIAL SECTION HEADERS
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .arch-section-header {
+  margin-bottom: 50px;
+}
+
+body.consultancy-modern-page .arch-section-kicker {
+  font-family: var(--fx-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fx-bronze);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+body.consultancy-modern-page .arch-section-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--fx-obsidian);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+body.consultancy-modern-page .arch-section-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fx-slate-body);
+  max-width: 640px;
+  margin: 0;
+}
+
+body.consultancy-modern-page .text-center .arch-section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -------------------------------------------------------------
+   OVERVIEW / PRACTICE PROFILE SECTION
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .arch-overview-section {
+  padding: 95px 0 85px;
+  background: var(--fx-bg-pure);
+}
+
+body.consultancy-modern-page .overview-lead-paragraph {
+  font-size: 18px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: var(--fx-charcoal-900);
+  margin-bottom: 22px;
+}
+
+body.consultancy-modern-page .overview-body-paragraph {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--fx-slate-body);
+  margin-bottom: 28px;
+}
+
+body.consultancy-modern-page .overview-manifesto-quote {
+  border-left: 3px solid var(--fx-bronze);
+  padding: 8px 0 8px 24px;
+  margin-top: 30px;
+}
+
+body.consultancy-modern-page .overview-manifesto-quote p {
+  font-family: var(--fx-font-body);
+  font-size: 15.5px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--fx-charcoal-800);
+  margin: 0;
+}
+
+/* Right Column: Architectural Practice Dossier */
+body.consultancy-modern-page .arch-dossier-card {
+  background: var(--fx-bg-warm);
+  border: 1px solid var(--fx-border);
+  border-radius: var(--fx-radius-md);
+  padding: 34px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+body.consultancy-modern-page .arch-dossier-header {
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--fx-border);
+}
+
+body.consultancy-modern-page .arch-dossier-header h4 {
+  font-family: var(--fx-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fx-obsidian);
+  margin: 0 0 4px 0;
+}
+
+body.consultancy-modern-page .arch-dossier-header span {
+  font-size: 13px;
+  color: var(--fx-slate-muted);
+}
+
+body.consultancy-modern-page .arch-dossier-table {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+body.consultancy-modern-page .arch-dossier-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+body.consultancy-modern-page .arch-dossier-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+body.consultancy-modern-page .arch-dossier-label {
+  font-family: var(--fx-font-heading);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fx-bronze-dark);
+}
+
+body.consultancy-modern-page .arch-dossier-val {
+  font-family: var(--fx-font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fx-charcoal-800);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------
+   OUR SERVICES - MODERN ARCHITECTURAL CARD DESIGN
+   ------------------------------------------------------------- */
+body.consultancy-modern-page section#consultancy-services.news {
+  padding: 35px 0 35px;
+  background: #ffffff;
+}
+
+body.consultancy-modern-page section#consultancy-services .section-sub-title {
+  font-family: var(--fx-font-heading);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 42px;
+  margin: 0 0 45px;
+  color: var(--fx-obsidian);
+}
+
+body.consultancy-modern-page section#consultancy-services .shuffle-item {
+  padding: 0 14px;
+  margin-bottom: 28px;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 330px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container .gallery-popup {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(9, 77, 86, 0.16);
+  border-color: rgba(9, 77, 86, 0.3);
+}
+
+/* Override default template dark veil */
+body.consultancy-modern-page section#consultancy-services .project-img-container:after {
+  display: none !important;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.01);
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Modern Card Info Overlay (Positioned at bottom with elegant gradient) */
+body.consultancy-modern-page section#consultancy-services .project-item-info {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 0;
+  padding: 38px 24px 22px;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 18, 22, 0.60) 24%, rgba(7, 18, 22, 0.92) 75%, #071216 100%);
+  z-index: 2;
+  transition: background 0.35s ease;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-item-info-content {
+  position: relative;
+}
+
+/* Architectural Accent Indicator */
+body.consultancy-modern-page section#consultancy-services .project-item-info-content::before {
+  content: '';
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--fx-teal);
+  margin-bottom: 12px;
+  transition: width 0.35s ease;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container:hover .project-item-info-content::before {
+  width: 48px;
+}
+
+/* Modern Card Title */
+body.consultancy-modern-page section#consultancy-services .project-item-info-content .project-cat {
+  background: transparent !important;
+  display: block;
+  padding: 0;
+  margin: 0 0 8px 0;
+  font-family: var(--fx-font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  line-height: 1.35;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-item-info-content .project-cat a {
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container:hover .project-cat a {
+  color: var(--fx-teal-light, #2dd4bf) !important;
+}
+
+/* Modern Card Description */
+body.consultancy-modern-page section#consultancy-services .project-item-info-content p {
+  font-family: var(--fx-font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.84) !important;
+  margin: 0;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Modern Circular Lightbox Button */
+body.consultancy-modern-page section#consultancy-services .gallery-popup .gallery-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(11, 20, 23, 0.65);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 12px;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+body.consultancy-modern-page section#consultancy-services .project-img-container:hover .gallery-popup .gallery-icon {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--fx-teal);
+  border-color: var(--fx-teal);
+  color: #ffffff;
+}
+
+/* -------------------------------------------------------------
+   GCC REGIONAL FOCUS SECTION (HUMAN ARCHITECTURAL DOSSIER)
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .arch-gcc-section {
+  padding: 95px 0 85px;
+  background: var(--fx-bg-pure);
+}
+
+body.consultancy-modern-page .arch-accordion {
+  border-top: 1px solid var(--fx-border);
+}
+
+body.consultancy-modern-page .arch-accordion-item {
+  border-bottom: 1px solid var(--fx-border);
+  background: transparent;
+}
+
+body.consultancy-modern-page .arch-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 8px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: var(--fx-font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--fx-obsidian);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+body.consultancy-modern-page .arch-accordion-btn:focus {
+  outline: none;
+}
+
+body.consultancy-modern-page .arch-acc-num {
+  font-family: var(--fx-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--fx-bronze);
+  margin-right: 18px;
+}
+
+body.consultancy-modern-page .arch-acc-icon {
+  font-size: 12px;
+  color: var(--fx-slate-muted);
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 14px;
+}
+
+body.consultancy-modern-page .arch-accordion-btn:not(.collapsed) {
+  color: var(--fx-teal);
+}
+
+body.consultancy-modern-page .arch-accordion-btn:not(.collapsed) .arch-acc-icon {
+  transform: rotate(180deg);
+  color: var(--fx-teal);
+}
+
+body.consultancy-modern-page .arch-accordion-body {
+  padding: 0 8px 24px 44px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--fx-slate-body);
+}
+
+/* Right column: GCC Architectural Footprint Card */
+body.consultancy-modern-page .arch-gcc-card {
+  background: var(--fx-obsidian);
+  border-radius: var(--fx-radius-md);
+  padding: 40px 34px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.consultancy-modern-page .arch-gcc-card-kicker {
+  font-family: var(--fx-font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fx-bronze);
+  margin-bottom: 12px;
+}
+
+body.consultancy-modern-page .arch-gcc-card-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+body.consultancy-modern-page .arch-gcc-card-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 26px;
+}
+
+body.consultancy-modern-page .arch-country-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+body.consultancy-modern-page .arch-country-item {
+  font-family: var(--fx-font-heading);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: var(--fx-radius-xs);
+}
+
+body.consultancy-modern-page .arch-gcc-card-assurances {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+body.consultancy-modern-page .arch-assurance-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+}
+
+body.consultancy-modern-page .arch-assurance-item i {
+  color: var(--fx-bronze);
+  font-size: 13px;
+}
+
+/* -------------------------------------------------------------
+   ARCHITECTURAL PORTFOLIO (12 PROJECTS)
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .ts-our-projects-area {
+  padding: 95px 0 85px;
+  background: var(--fx-obsidian);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.consultancy-modern-page .ts-our-projects-area .arch-section-title {
+  color: #ffffff;
+}
+
+body.consultancy-modern-page .ts-our-projects-area .arch-section-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.consultancy-modern-page a.ts-project-card {
+  height: 310px;
+  margin-bottom: 30px;
+  background: #000000;
+}
+
+body.consultancy-modern-page a.ts-project-card:hover {
+  transform: translateY(-6px);
+}
+
+body.consultancy-modern-page .ts-project-card .ts-project-title-bar {
+  background: linear-gradient(0deg, rgba(8, 17, 20, 0.95) 0%, rgba(8, 17, 20, 0.6) 80%, transparent 100%);
+  padding: 20px 20px 16px;
+}
+
+body.consultancy-modern-page .ts-project-card .ts-project-heading {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+body.consultancy-modern-page .ts-project-card .ts-project-overlay {
+  background: linear-gradient(180deg, rgba(9, 77, 86, 0.4) 0%, rgba(9, 77, 86, 0.94) 38%, #07171a 75%, #07171a 100%);
+  padding: 26px 22px;
+}
+
+body.consultancy-modern-page .ts-project-overlay .ts-project-overlay-place {
+  color: var(--fx-bronze-light) !important;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   WHY CHOOSE US (PRACTICE VALUES & CORE PILLARS)
+   ------------------------------------------------------------- */
+body.consultancy-modern-page .arch-advantages-section {
+  padding: 95px 0 85px;
+  background: var(--fx-bg-pure);
+}
+
+body.consultancy-modern-page .arch-advantage-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid var(--fx-border);
+  border-radius: var(--fx-radius-md);
+  padding: 22px 20px;
+  margin-bottom: 20px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.consultancy-modern-page .arch-advantage-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(11, 20, 23, 0.06);
+}
+
+body.consultancy-modern-page .arch-advantage-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: var(--fx-radius-xs);
+  background: var(--fx-bg-slate);
+  border: 1px solid var(--fx-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: all 0.25s ease;
+}
+
+body.consultancy-modern-page .arch-advantage-card:hover .arch-advantage-icon {
+  background: var(--fx-teal);
+  border-color: var(--fx-teal);
+}
+
+body.consultancy-modern-page .arch-advantage-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.25s ease;
+}
+
+body.consultancy-modern-page .arch-advantage-card:hover .arch-advantage-icon img {
+  filter: brightness(0) invert(1);
+}
+
+body.consultancy-modern-page .arch-advantage-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--fx-obsidian);
+  margin-bottom: 4px;
+}
+
+body.consultancy-modern-page .arch-advantage-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--fx-slate-body);
+  margin: 0;
+}
+
+body.consultancy-modern-page .arch-center-frame {
+  position: relative;
+  border-radius: var(--fx-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--fx-border);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+}
+
+body.consultancy-modern-page .arch-center-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+body.consultancy-modern-page .arch-center-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  background: rgba(11, 20, 23, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--fx-radius-xs);
+  padding: 12px 16px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.consultancy-modern-page .arch-center-caption i {
+  color: var(--fx-bronze);
+  font-size: 16px;
+}
+
+body.consultancy-modern-page .arch-center-caption span {
+  font-family: var(--fx-font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  body.consultancy-modern-page .arch-hero-title {
+    font-size: 40px;
+  }
+
+  body.consultancy-modern-page .arch-section-title {
+    font-size: 28px;
+  }
+
+  body.consultancy-modern-page .arch-dossier-card {
+    margin-top: 36px;
+  }
+
+  body.consultancy-modern-page .arch-gcc-card {
+    margin-top: 36px;
+  }
+
+  body.consultancy-modern-page .arch-center-frame {
+    margin: 20px 0;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  body.consultancy-modern-page .arch-hero-title {
+    font-size: 32px;
+  }
+
+  body.consultancy-modern-page .arch-hero-subtitle {
+    font-size: 15px;
+  }
+
+  body.consultancy-modern-page .arch-section-title {
+    font-size: 24px;
+  }
+
+  body.consultancy-modern-page .arch-accordion-body {
+    padding-left: 24px;
+  }
+}
+
+/* -------------------------------------------------------------
+   MOBILE RESPONSIVE NAVIGATION & LOGO AREA (CONSULTANCY PAGE)
+   ------------------------------------------------------------- */
+@media (min-width: 992px) {
+
+  .mobile-sidebar-header,
+  .mobile-sidebar-footer,
+  .sidebar-backdrop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+
+  /* Prevent background scroll when sidebar is open */
+  body.sidebar-active {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none !important;
+  }
+
+  /* Neat & Compact Mobile Logo Area */
+  .header-one .bg-white {
+    padding: 10px 0 8px !important;
+  }
+
+  .header-one .logo-area {
+    padding: 0 !important;
+  }
+
+  .header-one .logo-area .row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+.header-one .logo-area .logo {
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .header-one .logo-area .logo img {
+    max-height: 40px !important;
+    width: auto !important;
+    display: inline-block !important;
+  }
+
+  .header-one .header-right {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .header-one .top-info-box {
+    display: none !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+    .header-one .top-info-box li {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    float: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .header-one .top-info-box .info-box {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+  }
+
+  .header-one .top-info-box .info-box-title {
+    display: none !important;
+  }
+
+  .header-one .top-info-box .info-box-subtitle {
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: #222 !important;
+    line-height: normal !important;
+    margin: 0 !important;
+  }
+
+  .header-one .top-info-box .info-box-subtitle a {
+    color: #222 !important;
+    text-decoration: none !important;
+  }
+
+  .header-one .top-info-box .info-box-subtitle a:hover {
+    color: var(--fx-teal) !important;
+  }
+
+  .header-one .top-info-box li.last ul {
+    display: flex !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header-one .top-info-box li.last ul li {
+    margin: 0 !important;
+  }
+
+  .header-one .top-info-box li.last a i {
+    font-size: 13px !important;
+    color: #555 !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .header-one .top-info-box li.last a:hover i {
+    color: var(--fx-teal) !important;
+  }
+
+  .site-navigation {
+    padding: 8px 0 !important;
+    background: #0d171a !important;
+    position: relative !important;
+  }
+
+  .site-navigation .container>.row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    margin: 0 !important;
+  }
+
+  .site-navigation .col-lg-9 {
+    width: auto !important;
+    padding: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .site-navigation .col-lg-3 {
+    width: auto !important;
+    padding: 0 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .navbar {
+    padding: 0 !important;
+  }
+
+  .navbar-toggler {
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    background: #d4af37 !important;
+    border: none !important;
+    font-size: 15px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .navbar-toggler:hover {
+    background: #d4af37 !important;
+  }
+
+  .site-navigation .btn.btn-primary {
+    padding: 10px 14px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    background: #094d56 !important;
+    border-color: var(--fx-bronze-light) !important;
+    color: #ffffff !important;
+    line-height: normal !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
+  }
+
+  .site-navigation .btn.btn-primary:hover {
+    background: #d4af37 !important;
+    border-color: #d4af37 !important;
+    color: #ffffff !important;
+  }
+
+  .site-navigation .nav-search {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    padding: 0 !important;
+    margin: 0 0 0 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: end;
+  }
+
+  .site-navigation .nav-search span i {
+    font-size: 16px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    padding: 4px 6px !important;
+    display: block !important;
+    position: static !important;
+    top: auto !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .site-navigation .nav-search span i:hover {
+    color: var(--fx-bronze-light) !important;
+  }
+
+  /* 60% Width Off-Canvas Mobile Sidebar Drawer (Slides from Left to Right) */
+  .site-navigation .navbar-collapse {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 60% !important;
+    min-width: 240px !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    background: #0d171a !important;
+    z-index: 999999 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.5) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.32s ease !important;
+    visibility: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Open State */
+  .site-navigation .navbar-collapse.sidebar-open {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+  }
+
+  /* Sidebar Header with Logo and Close Button */
+  .mobile-sidebar-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 18px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
+  }
+
+  .mobile-sidebar-header .sidebar-logo img {
+    max-height: 26px !important;
+    width: auto !important;
+    filter: brightness(0) invert(1) !important;
+  }
+
+  .sidebar-close-btn {
+    width: 30px !important;
+    height: 30px !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .sidebar-close-btn:hover {
+    color: var(--fx-bronze-light) !important;
+    transform: rotate(90deg) !important;
+  }
+
+  /* Sidebar Navigation Items */
+  .site-navigation .navbar-nav {
+    padding: 8px 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    list-style: none !important;
+  }
+
+  .site-navigation .navbar-nav>li.nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 0 18px !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  .site-navigation .navbar-nav>li.nav-item .nav-link {
+    display: block !important;
+    padding: 13px 0 !important;
+    font-family: var(--fx-font-heading) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    line-height: 1.3 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .site-navigation .navbar-nav>li.nav-item .nav-link:hover,
+  .site-navigation .navbar-nav>li.nav-item.active .nav-link {
+    color: #d4af37 !important;
+    transform: translateX(4px) !important;
+  }
+
+  /* Mobile Sidebar Nested Dropdowns */
+  .site-navigation .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    padding: 0 10px 8px 15px !important;
+    margin: 0 !important;
+    display: none;
+    transform: none !important;
+  }
+
+  .site-navigation .dropdown-menu li {
+    list-style: none !important;
+  }
+
+  .site-navigation .dropdown-menu li:last-child {
+    border-bottom: none !important;
+  }
+
+  .site-navigation .dropdown-menu li a {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 12px !important;
+    padding: 10px 0 !important;
+    text-transform: capitalize !important;
+    font-weight: 500 !important;
+    display: block !important;
+  }
+
+  .site-navigation .dropdown-menu li a:hover,
+  .site-navigation .dropdown-menu li.active a {
+    color: #d4af37 !important;
+    padding-left: 4px !important;
+  }
+
+  /* Dropdown indicator icon animation */
+  .site-navigation .dropdown-toggle i {
+    float: right;
+    transition: transform 0.25s ease;
+  }
+
+  .site-navigation .dropdown-toggle.dropdown-active i {
+    transform: rotate(180deg);
+    color: #d4af37;
+  }
+
+  /* .header-two .dropdown-menu li a {
+    border-bottom: none !important;
+  } */
+/* 
+  .header-two .site-navigation .navbar-collapse {
+    background-color: #ffffff !important;
+  }
+
+  .header-two .site-navigation .navbar-nav>li.nav-item .nav-link{
+    color: #000 !important;
+  }
+
+  .header-two .mobile-sidebar-header{
+    color: #094d56 !important;
+  } */
+
+  /* Mobile Sidebar Footer (Simple Single-Color Minimalist Design) */
+  .mobile-sidebar-footer {
+    padding: 20px 18px 26px !important;
+    margin-top: auto !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Info Section */
+  .mobile-sidebar-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .sidebar-info-link {
+    font-family: var(--fx-font-body) !important;
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .sidebar-info-link i {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    width: 16px !important;
+    text-align: center !important;
+  }
+
+  .sidebar-info-link:hover {
+    color: var(--fx-bronze-light) !important;
+  }
+
+  /* Social Media Icons (Simple Single Color) */
+  .mobile-sidebar-social {
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .sidebar-social-list {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: center;
+  }
+
+  .sidebar-social-list li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .sidebar-social-list a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .sidebar-social-list a:hover {
+    color: var(--fx-bronze-light) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Backdrop Overlay */
+  .sidebar-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    z-index: 999990 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    touch-action: none !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  }
+
+  .sidebar-backdrop.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    touch-action: none !important;
+  }
+
+}
+
+@media(max-width: 768px) {
+
+  .arch-overview-section,
+  .arch-gcc-section {
+    padding: 40px 0 20px !important;
+  }
+}
+
+
+@media (max-width: 991px) {
+
+  .mobile-sidebar-header,
+  .mobile-sidebar-footer {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-sidebar-header {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .mobile-sidebar-footer {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+}
+
+/* Colorbox Active State - Prevent Responsive Breakdown & Horizontal Scrolling */
+body.cbox-active {
+  overflow-x: hidden !important;
+}
+
+@media (max-width: 991px) {
+  section#consultancy-services .gallery-popup .gallery-icon {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 }

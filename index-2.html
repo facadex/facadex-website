@@ -92,6 +92,17 @@
                 </button>
                 
                 <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <!-- Mobile Sidebar Header with Logo and Close Button -->
+                                    <div class="mobile-sidebar-header">
+                                        <div class="sidebar-logo">
+                                            <a href="index-2.html">
+                                                <img src="images/facedex-logo.png" alt="FacadeX">
+                                            </a>
+                                        </div>
+                                        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation">
+                                            &times;
+                                        </button>
+                                    </div>
                     <ul class="nav navbar-nav ml-auto align-items-center">
                       <li class="nav-item dropdown active">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
@@ -172,6 +183,9 @@
   <!--/ Navigation end -->
 </header>
 <!--/ Header end -->
+<!-- Mobile Sidebar Backdrop Overlay -->
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
 
 <div class="banner-carousel banner-carousel-2 mb-0">
   <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg4.jpg)">
@@ -923,6 +937,43 @@
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
+  <!-- Mobile Navigation & Dropdown Controller -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggler = document.querySelector('.navbar-toggler');
+    var sidebar = document.getElementById('navbar-collapse');
+    var closeBtn = document.getElementById('sidebarCloseBtn');
+    var backdrop = document.getElementById('sidebarBackdrop');
+
+    function openSidebar(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      if (sidebar) sidebar.classList.add('sidebar-open');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.classList.add('sidebar-active');
+    }
+
+    function closeSidebar(e) {
+      if (e && e.target && e.target.id === 'sidebarCloseBtn') {
+        e.preventDefault(); e.stopPropagation();
+      }
+      if (sidebar) sidebar.classList.remove('sidebar-open');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.classList.remove('sidebar-active');
+    }
+
+    if (toggler) toggler.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        sidebar && sidebar.classList.contains('sidebar-open') ? closeSidebar(e) : openSidebar(e);
+      }
+    }, true);
+
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (backdrop) backdrop.addEventListener('click', closeSidebar);
+  });
+</script>
+
 
   </div><!-- Body inner end -->
   </body>

@@ -125,9 +125,20 @@
                 </button>
 
                 <div id="navbar-collapse" class="collapse navbar-collapse">
+                    <!-- Mobile Sidebar Header with Logo and Close Button -->
+                                    <div class="mobile-sidebar-header">
+                                        <div class="sidebar-logo">
+                                            <a href="index.html">
+                                                <img src="images/facedex-logo.png" alt="FacadeX">
+                                            </a>
+                                        </div>
+                                        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation">
+                                            &times;
+                                        </button>
+                                    </div>
                   <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                      <a href="index.html" class="nav-link dropdown-toggle">Home</a>
+                    <li class="nav-item">
+                      <a href="index.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="academy.html">Academy</a></li>
@@ -135,6 +146,27 @@
                     <!-- <li class="nav-item"><a class="nav-link" href="recruitment.html">Recruitment</a></li> -->
                     <li class="nav-item active"><a class="nav-link" href="contact.html">Contact Us</a></li>
                   </ul>
+                  
+                                    <!-- Mobile Sidebar Info & Social Section (Simple Unified Design) -->
+                                    <div class="mobile-sidebar-footer">
+                                        <div class="mobile-sidebar-info">
+                                            <a href="tel:+917561060600" class="sidebar-info-link">
+                                                <i class="fas fa-phone-alt"></i> (+91) 756-106-0600
+                                            </a>
+                                            <a href="mailto:info@facadex.co.in" class="sidebar-info-link">
+                                                <i class="fas fa-envelope"></i> info@facadex.co.in
+                                            </a>
+                                        </div>
+
+                                        <div class="mobile-sidebar-social">
+                                            <ul class="sidebar-social-list">
+                                                <li><a href="https://chat.whatsapp.com/EueQmqMm9jkFKSzGrxe596?mode=r_c" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                                <li><a href="https://www.linkedin.com/company/facadex-academy/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                                <li><a href="https://www.instagram.com/facadex_academy/?igsh=MWR5NHBodmc1dTEzcQ%3D%3D#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://www.facebook.com/share/17dPUVxASP/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                 </div>
               </nav>
             </div>
@@ -166,6 +198,7 @@
       <!--/ Navigation end -->
     </header>
     <!--/ Header end -->
+    
 
     <div id="banner-area" class="elapsed-banner-area" style="background-image:url(images/banner/contact-banner.webp)">
       <div class="banner-text">
@@ -451,6 +484,67 @@
         });
       });
     </script>
+    <!-- Mobile Sidebar Navigation Controller -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var toggler = document.querySelector('.navbar-toggler');
+                var sidebar = document.getElementById('navbar-collapse');
+                var closeBtn = document.getElementById('sidebarCloseBtn');
+                var backdrop = document.getElementById('sidebarBackdrop');
+                var navLinks = document.querySelectorAll('#navbar-collapse a');
+
+                function openSidebar(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    if (sidebar) sidebar.classList.add('sidebar-open');
+                    if (backdrop) backdrop.classList.add('active');
+                    document.body.classList.add('sidebar-active');
+                }
+
+                function closeSidebar(e) {
+                    if (e && e.target && e.target.id === 'sidebarCloseBtn') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    if (sidebar) sidebar.classList.remove('sidebar-open');
+                    if (backdrop) backdrop.classList.remove('active');
+                    document.body.classList.remove('sidebar-active');
+                }
+
+                if (toggler) {
+                    toggler.addEventListener('click', function (e) {
+                        if (window.innerWidth < 992) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                            if (sidebar && sidebar.classList.contains('sidebar-open')) {
+                                closeSidebar(e);
+                            } else {
+                                openSidebar(e);
+                            }
+                        }
+                    }, true);
+                }
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeSidebar);
+                }
+
+                if (backdrop) {
+                    backdrop.addEventListener('click', closeSidebar);
+                }
+
+                // Automatically close sidebar when any navigation link is clicked
+                navLinks.forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        if (window.innerWidth < 992) {
+                            closeSidebar();
+                        }
+                    });
+                });
+            });
+        </script>
 
   </div><!-- Body inner end -->
 </body>

@@ -125,13 +125,24 @@
   <div class="site-navigation">
     <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-9">
               <nav class="navbar navbar-expand-lg navbar-dark p-0">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <div id="navbar-collapse" class="collapse navbar-collapse">
+                   <!-- Mobile Sidebar Header with Logo and Close Button -->
+                                    <div class="mobile-sidebar-header">
+                                        <div class="sidebar-logo">
+                                            <a href="index-2.html">
+                                                <img src="images/facedex-logo.png" alt="FacadeX">
+                                            </a>
+                                        </div>
+                                        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation">
+                                            &times;
+                                        </button>
+                                    </div>
                     <ul class="nav navbar-nav mr-auto">
                       <li class="nav-item dropdown active">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
@@ -195,16 +206,40 @@
               
                       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
+                    <!-- Mobile Sidebar Info & Social Section (Simple Unified Design) -->
+                                    <div class="mobile-sidebar-footer">
+                                        <div class="mobile-sidebar-info">
+                                            <a href="tel:+917561060600" class="sidebar-info-link">
+                                                <i class="fas fa-phone-alt"></i> (+91) 756-106-0600
+                                            </a>
+                                            <a href="mailto:info@facadex.co.in" class="sidebar-info-link">
+                                                <i class="fas fa-envelope"></i> info@facadex.co.in
+                                            </a>
+                                        </div>
+
+                                        <div class="mobile-sidebar-social">
+                                            <ul class="sidebar-social-list">
+                                                <li><a href="https://chat.whatsapp.com/EueQmqMm9jkFKSzGrxe596?mode=r_c" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                                <li><a href="https://www.linkedin.com/company/facadex-academy/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                                <li><a href="https://www.instagram.com/facadex_academy/?igsh=MWR5NHBodmc1dTEzcQ%3D%3D#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://www.facebook.com/share/17dPUVxASP/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <li class="header-get-a-quote">
+                                          <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                                        </li>
+                                    </div>
                 </div>
               </nav>
           </div>
           <!--/ Col end -->
-        </div>
+        
         <!--/ Row end -->
 
-        <div class="nav-search">
+        <div class="nav-search col-lg-3">
           <span id="search"><i class="fa fa-search"></i></span>
         </div><!-- Search end -->
+        </div>
 
         <div class="search-block" style="display: none;">
           <label for="search-field" class="w-100 mb-0">
@@ -219,6 +254,8 @@
   <!--/ Navigation end -->
 </header>
 <!--/ Header end -->
+<!-- Mobile Sidebar Backdrop Overlay -->
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 <div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
   <div class="banner-text">
     <div class="container">
@@ -487,6 +524,41 @@
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggler = document.querySelector('.navbar-toggler');
+    var sidebar = document.getElementById('navbar-collapse');
+    var closeBtn = document.getElementById('sidebarCloseBtn');
+    var backdrop = document.getElementById('sidebarBackdrop');
+
+    function openSidebar(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      if (sidebar) sidebar.classList.add('sidebar-open');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.classList.add('sidebar-active');
+    }
+
+    function closeSidebar(e) {
+      if (e && e.target && e.target.id === 'sidebarCloseBtn') {
+        e.preventDefault(); e.stopPropagation();
+      }
+      if (sidebar) sidebar.classList.remove('sidebar-open');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.classList.remove('sidebar-active');
+    }
+
+    if (toggler) toggler.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        sidebar && sidebar.classList.contains('sidebar-open') ? closeSidebar(e) : openSidebar(e);
+      }
+    }, true);
+
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (backdrop) backdrop.addEventListener('click', closeSidebar);
+  });
+</script>
 
   </div><!-- Body inner end -->
   </body>
