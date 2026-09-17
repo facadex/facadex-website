@@ -186,27 +186,25 @@
               </nav>
             </div>
             <!--/ Col end -->
-            <div class="col-lg-3 me-2 d-flex align-items-center g-10">
+            <div class="col-lg-3 header-search-col d-flex align-items-center justify-content-end">
 
-              <div class="h-auto">
+              <!-- <div class="h-auto mr-2">
                 <a href="https://academy.facadex.co.in/login" target="_blank" class="btn btn-primary">
                   Student Login
                 </a>
-              </div>
-              <div class="nav-search">
-                <span id="search"><i class="fa fa-search"></i></span>
+              </div> -->
+              <div class="header-search-bar">
+                <form class="header-search-form" id="headerSearchForm" role="search" onsubmit="return handleHeaderSearch(event)">
+                  <input type="text" class="header-search-input" id="search-field" placeholder="Search..." aria-label="Search" autocomplete="off">
+                  <button type="submit" class="header-search-btn" aria-label="Search">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </form>
               </div>
             </div>
 
           </div>
           <!--/ Row end -->
-
-          <div class="search-block" style="display: none;">
-            <label for="search-field" class="w-100 mb-0">
-              <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-            </label>
-            <span class="search-close">&times;</span>
-          </div><!-- Site search end -->
         </div>
         <!--/ Container end -->
 

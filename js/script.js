@@ -103,6 +103,7 @@ jQuery(function ($) {
 		}
 		navSearch();
 
+
 		// navbarDropdown
 		function navbarDropdown() {
 			$('.site-navigation .dropdown-toggle').off('click').on('click', function (e) {

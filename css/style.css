@@ -1268,6 +1268,89 @@ ul.navbar-nav>li>a {
   right: 0;
 }
 
+/* Visible Header Search Bar */
+.header-search-col {
+  position: relative;
+  z-index: 10;
+}
+
+.header-search-bar {
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+}
+
+.header-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.header-search-input {
+  width: 100%;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+  padding: 0 38px 0 15px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.header-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+.header-search-input:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.header-search-input:focus {
+  background: #142328;
+  border-color: #d4af37;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+}
+
+.header-search-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+  transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.header-search-btn:hover {
+  color: #d4af37;
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.header-search-btn:focus {
+  outline: none;
+  color: #d4af37;
+}
+
 /* Get a quote */
 .header-get-a-quote .btn-primary {
   padding: 12px 25px !important;
@@ -5062,6 +5145,35 @@ body.consultancy-modern-page .arch-center-caption span {
 
   .site-navigation .nav-search span i:hover {
     color: var(--fx-bronze-light) !important;
+  }
+
+  /* Mobile Visible Header Search Bar */
+  .site-navigation .header-search-col {
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 0 0 auto !important;
+  }
+
+  .site-navigation .header-search-bar {
+    width: 190px !important;
+    max-width: 52vw !important;
+  }
+
+  .site-navigation .header-search-input {
+    height: 34px !important;
+    font-size: 12.5px !important;
+    padding: 0 34px 0 12px !important;
+  }
+
+  .site-navigation .header-search-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+    right: 3px !important;
   }
 
   /* 60% Width Off-Canvas Mobile Sidebar Drawer (Slides from Left to Right) */
