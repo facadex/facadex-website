@@ -684,6 +684,17 @@ ul.top-info li p.info-text {
   padding-left: 0;
 }
 
+.phone-number svg{
+  width: 18px;
+  height: 18px;
+}
+
+.phone-number a{
+  color: #afafaf;
+  font-family: "Open Sans", sans-serif!important;
+  font-weight: 500;;
+}
+
 @media (max-width: 991px) {
   .navbar-collapse.collapse {
     overflow-y: auto;
@@ -735,8 +746,9 @@ ul.navbar-nav>li>a {
   .navbar-nav {
     margin-bottom: 15px;
   }
-  .header-two .site-navigation{
-    background: #fff!important;
+
+  .header-two .site-navigation {
+    background: #fff !important;
   }
 }
 
@@ -3265,15 +3277,15 @@ label {
   font-weight: 400;
 }
 
-@media(max-width: 768px){
- #rascomap .col-lg-12{
-  padding-left: 0px!important;
-  padding-right: 0px!important;
- }
+@media(max-width: 768px) {
+  #rascomap .col-lg-12 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 
-  #rascomap .container{
-    padding-left: 0px!important;
-    padding-right: 0px!important; 
+  #rascomap .container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 }
 
@@ -3770,11 +3782,12 @@ label {
 }
 
 
-@media(max-width: 768px){
-  .error-page .error-code h2{
+@media(max-width: 768px) {
+  .error-page .error-code h2 {
     font-size: 150px;
   }
 }
+
 /* ==================================================
    Our Projects Grid Section (Consultancy)
 ================================================== */
@@ -4963,7 +4976,7 @@ body.consultancy-modern-page .arch-center-caption span {
     text-align: center !important;
   }
 
-.header-one .logo-area .logo {
+  .header-one .logo-area .logo {
     margin-bottom: 8px !important;
     padding: 0 !important;
     text-align: center !important;
@@ -4993,7 +5006,7 @@ body.consultancy-modern-page .arch-center-caption span {
     list-style: none !important;
   }
 
-    .header-one .top-info-box li {
+  .header-one .top-info-box li {
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
@@ -5333,7 +5346,7 @@ body.consultancy-modern-page .arch-center-caption span {
   /* .header-two .dropdown-menu li a {
     border-bottom: none !important;
   } */
-/* 
+  /* 
   .header-two .site-navigation .navbar-collapse {
     background-color: #ffffff !important;
   }
@@ -5483,5 +5496,128 @@ body.cbox-active {
   section#consultancy-services .gallery-popup .gallery-icon {
     opacity: 1 !important;
     transform: scale(1) !important;
+  }
+}
+
+/* ==================================================
+   Floating WhatsApp Button
+================================================== */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 9990;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  animation: wa-pulse 2.5s infinite;
+}
+
+.floating-whatsapp i {
+  color: #ffffff !important;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #ffffff !important;
+  animation: none;
+}
+
+.floating-whatsapp:hover i {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.floating-whatsapp:active {
+  transform: scale(0.95);
+}
+
+.floating-whatsapp .whatsapp-tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background:#000;
+  color: #ffffff;
+  font-family: var(--fx-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.floating-whatsapp .whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #000;
+}
+
+.floating-whatsapp:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/*Ring */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+}
+
+/* Lift Back to Top above WhatsApp when WhatsApp is present */
+body:has(.floating-whatsapp) #back-to-top.position-fixed,
+.floating-whatsapp ~ * #back-to-top.position-fixed {
+  bottom: 95px !important;
+  right: 32px !important;
+}
+
+@media (max-width: 767px) {
+  .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+  }
+
+  .floating-whatsapp .whatsapp-tooltip {
+    display: none;
+  }
+
+  body:has(.floating-whatsapp) #back-to-top.position-fixed,
+  .floating-whatsapp ~ * #back-to-top.position-fixed {
+    bottom: 84px !important;
+    right: 25px !important;
   }
 }
