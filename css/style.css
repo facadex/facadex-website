@@ -695,6 +695,9 @@ ul.top-info li p.info-text {
   font-weight: 500;;
 }
 
+
+
+
 @media (max-width: 991px) {
   .navbar-collapse.collapse {
     overflow-y: auto;
@@ -709,6 +712,9 @@ ul.top-info li p.info-text {
 @media (max-width: 991px) {
   .header-one ul.navbar-nav>li {
     padding-right: 0;
+  }
+  .phone-number a{
+    font-size: 13px;
   }
 }
 
@@ -4294,7 +4300,7 @@ body.consultancy-modern-page .arch-section-kicker {
 }
 
 body.consultancy-modern-page .arch-section-title {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 800;
   color: var(--fx-obsidian);
   letter-spacing: -0.025em;
